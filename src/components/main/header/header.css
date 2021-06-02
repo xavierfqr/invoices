@@ -1,0 +1,130 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 30px;
+  padding-bottom: 0.6rem;
+}
+
+.subtitle {
+  font-weight: 200;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.filter {
+  display: flex;
+  font-weight: 600;
+  font-size: 12px;
+  padding-right: 1rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+}
+
+.filter-text {
+  margin-right: 1rem;
+}
+
+.new-invoice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 0.5rem;
+  border-radius: 30px;
+  background-color: rgb(124, 93, 250);
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.new-invoice:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
+.plus-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+}
+.plus {
+  display: block;
+  margin: auto;
+}
+
+.invoice-text {
+  padding: 0 0.5rem 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 2rem;
+  background-color: rgb(37, 41, 69);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: 12rem;
+  transform: translateX(-4rem);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  box-shadow: rgb(0 0 0 / 25%) 0px 10px 20px;
+}
+
+.dropdown > div {
+  padding: 0.3rem;
+}
+
+.dropdown input {
+  margin-right: 1rem;
+}
+
+.filter-container {
+  position: relative;
+}
+
+.rotate-up {
+  animation: rotate-arrow-up 0.2s ease;
+  animation-fill-mode: forwards;
+}
+
+.rotate-down {
+  animation: rotate-arrow-down 0.2s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotate-arrow-up {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes rotate-arrow-down {
+  from {
+    transform: rotate(-180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

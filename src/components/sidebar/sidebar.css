@@ -1,0 +1,56 @@
+.sidebar {
+  background-color: #141625;
+  width: 6rem;
+  height: 100vh;
+  background-color: #1e2139;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flocon-container {
+  background-color: rgb(124, 93, 250);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: inherit;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flocon {
+  width: 50px;
+  height: 50px;
+}
+
+.bottom-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sun {
+  margin: 1.75rem 0px;
+}
+.sun:hover {
+  cursor: pointer;
+}
+
+.delimit-bar {
+  width: 6rem;
+  height: 1px;
+  background-color: #444;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 2rem;
+  margin: 1.75rem 0px;
+}
+.avatar:hover {
+  cursor: pointer;
+}
