@@ -1,6 +1,5 @@
 import React from 'react';
-import jsonFile from './../../../data/data.json';
-
+import InvoiceElem from './invoiceElem/InvoiceElem';
 
 interface Props {
 }
@@ -12,7 +11,7 @@ interface State {
 
 class InvoiceList extends React.Component<Props, State> {
 
-    constructor(props: any){
+    constructor(props: Props){
         super(props)
         this.state = {
             invoiceList : []
@@ -20,16 +19,25 @@ class InvoiceList extends React.Component<Props, State> {
     }
 
     async componentDidMount(){
-        fetch('./../../../data/data.json')
+        fetch('data.json',{
+            headers : { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+             }
+           })
             .then(res => res.json())
-        //const fetchInvoiceList = await response.text();
-        
+            .then(myJson => this.setState({invoiceList: myJson}))        
     }
 
     render(){
         return (
-            <div>
-                {this.state.invoiceList.map((elem: any, index: number) => (<div key={index}>{elem.id} toto</div>))}
+            <div className="invoice-list-container">
+                {this.state.invoiceList.map((elem: any, index: number) => (
+                    <InvoiceElem key={index} id={elem.id} createdAt={elem.createdAt} clientName={elem.clientName}
+                        total={elem.total} status={elem.status}/>
+                ))}
+                <div>ewfjwefoj</div>
+                <div>weifjwoef</div>
             </div>
         )
     }

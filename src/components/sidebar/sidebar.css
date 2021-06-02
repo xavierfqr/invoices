@@ -1,6 +1,8 @@
 .sidebar {
+  position: sticky;
+  top: 0;
   background-color: #141625;
-  width: 6rem;
+  width: 6.5rem;
   height: 100vh;
   background-color: #1e2139;
   border-top-right-radius: 20px;

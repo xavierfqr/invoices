@@ -1,0 +1,57 @@
+.invoice-elem-container {
+  display: grid;
+  grid-template-columns: 5rem 9rem 1fr min-content min-content min-content;
+  align-items: center;
+  margin: 1rem 0 1rem 0;
+  background-color: rgb(30, 33, 57);
+  border-radius: 8px;
+  padding: 2rem;
+  font-size: 0.75rem;
+}
+
+.id {
+  font-weight: 700;
+}
+
+.id > span {
+  color: rgb(126, 136, 195);
+}
+
+.created-at {
+  font-weight: 100;
+}
+
+.client-name {
+  font-weight: 200;
+}
+
+.total {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.status {
+  padding: 1rem;
+  margin: 0 1rem 0 2rem;
+  border-radius: 0.5rem;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  background: yellow;
+  border-radius: 50%;
+  background-color: rgba(51, 214, 159);
+}
+
+.paid {
+  background-color: rgba(51, 214, 159, 0.06);
+}
+
+.pending {
+  background-color: rgba(255, 143, 0, 0.06);
+}
+
+.draft {
+  background-color: rgba(223, 227, 250, 0.06);
+}
