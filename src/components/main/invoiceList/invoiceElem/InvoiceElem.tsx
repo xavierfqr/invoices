@@ -15,19 +15,26 @@ interface StatusProps {
 }
 
 const Status = ({status} : StatusProps) => {
-    const classes = `${status} status`
+    const classes = `${status} status`;
+    const circleClasses = `${status}-circle circle`
     return (
-        <div className={classes}><div className="circle"></div>{status}</div>
+        <div className={classes}>
+            <div className={circleClasses}></div>
+            <div className="status-text">{status}</div>
+        </div>
     )
 }
 
 const InvoiceElem = ({id,  createdAt, clientName, total, status} : Props) => {
+    const date = new Date(createdAt);
+    const stringDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'long' }).substr(0, 3)} ${date.getFullYear()}`
+
     return (
         <div className="invoice-elem-container">
             <div className="id"><span>#</span>{id}</div>
-            <div className="created-at">{createdAt}</div>
+            <div className="created-at">Due {stringDate}</div>
             <div className="client-name">{clientName}</div>
-            <div className="total">{total}</div>
+            <div className="total">{total}$</div>
             <Status status={status}/>
             <RightArrow/>
         </div>

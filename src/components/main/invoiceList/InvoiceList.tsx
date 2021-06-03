@@ -36,8 +36,6 @@ class InvoiceList extends React.Component<Props, State> {
                     <InvoiceElem key={index} id={elem.id} createdAt={elem.createdAt} clientName={elem.clientName}
                         total={elem.total} status={elem.status}/>
                 ))}
-                <div>ewfjwefoj</div>
-                <div>weifjwoef</div>
             </div>
         )
     }

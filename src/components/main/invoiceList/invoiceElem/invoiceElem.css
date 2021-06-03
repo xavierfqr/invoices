@@ -5,8 +5,15 @@
   margin: 1rem 0 1rem 0;
   background-color: rgb(30, 33, 57);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1rem 1.5rem;
   font-size: 0.75rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.invoice-elem-container:hover {
+  border: 1px solid rgb(124, 93, 250);
+  transition: all 0.5s;
 }
 
 .id {
@@ -27,31 +34,58 @@
 
 .total {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .status {
   padding: 1rem;
   margin: 0 1rem 0 2rem;
   border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  width: 6.5rem;
 }
 
 .circle {
   width: 10px;
   height: 10px;
-  background: yellow;
   border-radius: 50%;
-  background-color: rgba(51, 214, 159);
+  margin: 0 0.5rem 0 0rem;
 }
 
 .paid {
   background-color: rgba(51, 214, 159, 0.06);
+  color: rgba(51, 214, 159);
+}
+
+.paid-circle {
+  background-color: rgba(51, 214, 159);
 }
 
 .pending {
   background-color: rgba(255, 143, 0, 0.06);
+  color: rgba(255, 143, 0);
+}
+
+.pending-circle {
+  background-color: rgba(255, 143, 0);
 }
 
 .draft {
   background-color: rgba(223, 227, 250, 0.06);
+  color: rgba(223, 227, 250);
+}
+
+.draft-circle {
+  background-color: rgba(223, 227, 250);
+}
+
+.status-text {
+  vertical-align: center;
+  line-height: 1.125;
+  text-transform: capitalize;
+  font-weight: 600;
 }
