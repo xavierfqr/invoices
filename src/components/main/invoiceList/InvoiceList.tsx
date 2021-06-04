@@ -1,6 +1,7 @@
 import React from 'react';
 import { FILTERS } from '../../../constants/Filters';
 import InvoiceElem from './invoiceElem/InvoiceElem';
+import {motion} from 'framer-motion';
 
 interface Props {
     filters: FILTERS[]
@@ -42,6 +43,15 @@ class InvoiceList extends React.Component<Props, State> {
         }
     }
 
+    animation = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: .15
+            }
+        }
+    }
+
     filteredList = () => {
         const invoiceList = this.state.invoiceList.filter((elem: any) => this.handleFilter(elem.status));
         return (
@@ -54,9 +64,11 @@ class InvoiceList extends React.Component<Props, State> {
 
     render(){
         return (
-            <div className="invoice-list-container">
-                {this.filteredList()}
-            </div>
+            <>{this.state.invoiceList !== [] &&
+                <motion.div className="invoice-list-container" variants={this.animation} initial="hidden" animate="visible">
+                    {this.filteredList()}
+                </motion.div>}
+            </>
         )
     }
 }

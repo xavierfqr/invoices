@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ThemeProvider } from 'styled-components';
-import Dark from './constants/Themes/Dark';
+//import { ThemeProvider } from 'styled-components';
+//import Dark from './constants/Themes/Dark';
+import {BrowserRouter as Router} from 'react-router-dom';
 import './index.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={Dark}>
-      <App />
-    </ThemeProvider>
+    <Router>
+      <App/>
+    </Router>  
   </React.StrictMode>,
   document.getElementById('root')
 );
