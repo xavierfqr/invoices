@@ -30,9 +30,7 @@ class Filter extends React.Component<FilterProps, FilterState> {
             const index = this.state.myFilters.indexOf(filter);
             filtersTemp.splice(index, 1);
         }
-        this.setState({
-            myFilters: filtersTemp
-        })
+        this.setState({myFilters: filtersTemp})
         this.props.setFilters(filtersTemp);
     }
     render(){

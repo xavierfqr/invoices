@@ -74,6 +74,7 @@
 }
 
 .dropdown {
+  z-index: 5;
   position: absolute;
   top: 2rem;
   background-color: rgb(37, 41, 69);

@@ -42,13 +42,20 @@ class InvoiceList extends React.Component<Props, State> {
         }
     }
 
+    filteredList = () => {
+        const invoiceList = this.state.invoiceList.filter((elem: any) => this.handleFilter(elem.status));
+        return (
+            invoiceList.map((elem: any, index: number) => (
+                <InvoiceElem key={index} id={elem.id} createdAt={elem.createdAt} clientName={elem.clientName}
+                    total={elem.total} status={elem.status}/>
+            ))
+        )
+    }
+
     render(){
         return (
             <div className="invoice-list-container">
-                {this.state.invoiceList.filter((elem: any) => this.handleFilter(elem.status)).map((elem: any, index: number) => (
-                    <InvoiceElem key={index} id={elem.id} createdAt={elem.createdAt} clientName={elem.clientName}
-                        total={elem.total} status={elem.status}/>
-                ))}
+                {this.filteredList()}
             </div>
         )
     }
