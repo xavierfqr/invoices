@@ -27,13 +27,22 @@ const Status = ({status} : StatusProps) => {
     )
 }
 
+const invoiceAnimation = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+    }
+}
+
 const InvoiceElem = ({id,  createdAt, clientName, total, status} : Props) => {
     const date = new Date(createdAt);
     const stringDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'long' }).substr(0, 3)} ${date.getFullYear()}`
 
     return (
         <Link to={`/invoice/${id}`} style={{ textDecoration: 'none', color:"#FFF"}}>
-            <motion.div className="invoice-elem-container" initial={{opacity:0}} animate={{opacity:1}}>
+            <motion.div className="invoice-elem-container" variants={invoiceAnimation} initial="hidden" animate="visible">
                 <div className="id"><span>#</span>{id}</div>
                 <div className="created-at">Due {stringDate}</div>
                 <div className="client-name">{clientName}</div>

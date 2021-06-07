@@ -8,9 +8,9 @@ import './app.css';
 const App = () => {
   return (
     <div className="container">
+      <Sidebar/>
       <Switch>
         <Route exact path="/">
-          <Sidebar/>
           <Main/>
         </Route>
         <Route path="/invoice/:id">
