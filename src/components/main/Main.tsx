@@ -3,6 +3,7 @@ import Header from './header/Header';
 import InvoiceList from './invoiceList/InvoiceList';
 import './main.css';
 import {FILTERS} from '../../constants/Filters'
+import {motion} from 'framer-motion';
 
 
 interface Props {
@@ -30,10 +31,10 @@ class Main extends React.Component<Props, State> {
 
     render(){
         return (
-            <div className="main-container">
+            <motion.div className="main-container">
                 <Header setFilters={this.setFilters}/>
                 <InvoiceList filters={this.state.filters}/>
-            </div>
+            </motion.div>
         )
     }
 }

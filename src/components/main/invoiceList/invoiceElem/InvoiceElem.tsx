@@ -1,7 +1,6 @@
 import React from 'react';
 import './invoiceElem.css';
 import {ReactComponent as RightArrow} from '../../../../images/icon-arrow-right.svg';
-import {motion} from 'framer-motion';
 import {Link} from 'react-router-dom';
 
 interface Props {
@@ -27,14 +26,6 @@ const Status = ({status} : StatusProps) => {
     )
 }
 
-const invoiceAnimation = {
-    hidden: {
-        opacity: 0,
-    },
-    visible: {
-        opacity: 1,
-    }
-}
 
 const InvoiceElem = ({id,  createdAt, clientName, total, status} : Props) => {
     const date = new Date(createdAt);
@@ -42,14 +33,14 @@ const InvoiceElem = ({id,  createdAt, clientName, total, status} : Props) => {
 
     return (
         <Link to={`/invoice/${id}`} style={{ textDecoration: 'none', color:"#FFF"}}>
-            <motion.div className="invoice-elem-container" variants={invoiceAnimation} initial="hidden" animate="visible">
+            <div className="invoice-elem-container" >
                 <div className="id"><span>#</span>{id}</div>
                 <div className="created-at">Due {stringDate}</div>
                 <div className="client-name">{clientName}</div>
                 <div className="total">{total}$</div>
                 <Status status={status}/>
                 <RightArrow/>
-            </motion.div>
+            </div>
         </Link>
     )
 }

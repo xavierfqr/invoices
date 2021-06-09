@@ -11,23 +11,39 @@ interface State {
     invoiceList : any
 }
 
+const listVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5
+      }
+    },
+    exit: {
+        x:'100vw'
+    }
+}
+const elemVariants = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+    }
+}
+
 
 class InvoiceList extends React.Component<Props, State> {
 
     constructor(props: Props){
         super(props)
         this.state = {
-            invoiceList : []
+            invoiceList: []
         }
     }
 
     async componentDidMount(){
-        fetch('data.json',{
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }
-           })
+        fetch('data.json')
             .then(res => res.json())
             .then(myJson => this.setState({invoiceList: myJson}))        
     }
@@ -43,30 +59,31 @@ class InvoiceList extends React.Component<Props, State> {
         }
     }
 
-    animation = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: .15
-            }
-        }
-    }
+    
 
     filteredList = () => {
         const invoiceList = this.state.invoiceList.filter((elem: any) => this.handleFilter(elem.status));
         return (
             invoiceList.map((elem: any, index: number) => (
-                <InvoiceElem key={index} id={elem.id} createdAt={elem.createdAt} clientName={elem.clientName}
+                <motion.div key={index} variants={elemVariants} initial="hidden" animate="visible">
+                    <InvoiceElem id={elem.id} createdAt={elem.createdAt} clientName={elem.clientName}
                     total={elem.total} status={elem.status}/>
+                </motion.div>
             ))
         )
     }
 
     render(){
+        //{this.filteredList()}
+        
         return (
-            <>{this.state.invoiceList !== [] &&
-                <motion.div className="invoice-list-container" variants={this.animation} initial="hidden" animate="visible">
-                    {this.filteredList()}
+            <>{this.state.invoiceList.length !== 0 &&
+                <motion.div className="invoice-list-container" variants={listVariants} initial="hidden" animate="visible" exit="exit">
+                    {this.state.invoiceList.filter((elem: any) => this.handleFilter(elem.status)).map((elem: any, index: number) => (
+                    <motion.div key={index} variants={elemVariants} initial="hidden" animate="visible">
+                        <InvoiceElem id={elem.id} createdAt={elem.createdAt} clientName={elem.clientName}
+                        total={elem.total} status={elem.status}/>
+                    </motion.div>))}
                 </motion.div>}
             </>
         )
