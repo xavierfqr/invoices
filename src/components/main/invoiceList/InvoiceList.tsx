@@ -18,9 +18,6 @@ const listVariants = {
       transition: {
         staggerChildren: 0.5
       }
-    },
-    exit: {
-        x:'100vw'
     }
 }
 const elemVariants = {
@@ -74,16 +71,11 @@ class InvoiceList extends React.Component<Props, State> {
     }
 
     render(){
-        //{this.filteredList()}
         
         return (
             <>{this.state.invoiceList.length !== 0 &&
                 <motion.div className="invoice-list-container" variants={listVariants} initial="hidden" animate="visible" exit="exit">
-                    {this.state.invoiceList.filter((elem: any) => this.handleFilter(elem.status)).map((elem: any, index: number) => (
-                    <motion.div key={index} variants={elemVariants} initial="hidden" animate="visible">
-                        <InvoiceElem id={elem.id} createdAt={elem.createdAt} clientName={elem.clientName}
-                        total={elem.total} status={elem.status}/>
-                    </motion.div>))}
+                    {this.filteredList()}
                 </motion.div>}
             </>
         )

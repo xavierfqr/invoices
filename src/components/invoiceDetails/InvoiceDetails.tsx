@@ -4,14 +4,15 @@ import './invoiceDetails.css';
 
 const invoiceVariants = {
     hidden:{
-        x: '100vw'
+        opacity: 0,
+        x: '50vw'
     },
     visible:{
+        opacity: 1,
         x:0,
         transition: {
             type:'tween',
-            duration: 1.5,
-            delay:0.4,
+            duration: 1,
         }
     }
 }
@@ -19,7 +20,7 @@ const invoiceVariants = {
 class InvoiceDetails extends React.Component {
     render(){
         return (
-            <motion.div variants={invoiceVariants} initial="hidden" animate="visible">
+            <motion.div className="invoice-details-container" variants={invoiceVariants} initial="hidden" animate="visible">
                 Invoice Details weeesh
                 efwiojf;wjfwef
                 wpfohwo;fjwifjwf

@@ -2,21 +2,27 @@ import React from 'react';
 import Sidebar from './components/sidebar/Sidebar';
 import Main from './components/main/Main';
 import InvoiceDetails from './components/invoiceDetails/InvoiceDetails';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import './app.css';
 
 const App = () => {
+
+  const location = useLocation();
+
   return (
     <div className="container">
       <Sidebar/>
-      <Switch>
-        <Route exact path="/">
-          <Main/>
-        </Route>
-        <Route path="/invoice/:id">
-          <InvoiceDetails/>
-        </Route>
-      </Switch>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.key}>
+          <Route exact path="/">
+            <Main/>
+          </Route>
+          <Route path="/invoice/:id">
+            <InvoiceDetails/>
+          </Route>
+        </Switch>
+      </AnimatePresence>
     </div>
   );
 }

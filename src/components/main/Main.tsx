@@ -10,7 +10,23 @@ interface Props {
 }
 
 interface State {
-    filters: FILTERS[]
+    filters: FILTERS[],
+}
+
+const mainVariants = {
+    hidden:{
+    },
+    visible:{
+        opacity: 1
+    },
+    exit: {
+        x:'-50vh',
+        transition:{
+            duration: 0.5,
+            ease:'easeIn'
+        },
+        opacity: 0,
+    }
 }
 
 class Main extends React.Component<Props, State> {
@@ -18,9 +34,10 @@ class Main extends React.Component<Props, State> {
     constructor(props: any){
         super(props)
         this.state = {
-            filters : [FILTERS.PAID, FILTERS.PENDING, FILTERS.DRAFT]
+            filters : [FILTERS.PAID, FILTERS.PENDING, FILTERS.DRAFT],
         }
     }
+
 
     setFilters = (filters: FILTERS[]): any => {
         this.setState({
@@ -31,7 +48,7 @@ class Main extends React.Component<Props, State> {
 
     render(){
         return (
-            <motion.div className="main-container">
+            <motion.div variants={mainVariants} exit="exit" className="main-container">
                 <Header setFilters={this.setFilters}/>
                 <InvoiceList filters={this.state.filters}/>
             </motion.div>
