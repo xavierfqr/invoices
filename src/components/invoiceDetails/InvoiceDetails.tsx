@@ -1,6 +1,10 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 import './invoiceDetails.css';
+import '../main/invoiceList/invoiceElem/invoiceElem.css';
+import BodyDetails from './detailsSections/BodyDetails';
+import HeaderDetails from './detailsSections/HeaderDetails';
+import { Status } from '../main/invoiceList/invoiceElem/InvoiceElem';
 
 const invoiceVariants = {
     hidden:{
@@ -14,17 +18,33 @@ const invoiceVariants = {
             type:'tween',
             duration: 1,
         }
+    },
+    exit: {
+        x:'50vw',
+        transition:{
+            duration: 0.5,
+            ease:'easeIn'
+        },
+        opacity: 0,
     }
 }
 
-class InvoiceDetails extends React.Component {
+interface IProps {
+    status?: any
+}
+
+class InvoiceDetails extends React.Component<IProps> {
+    constructor(props: IProps){
+        super(props)
+    }
+
     render(){
+        console.log(this.props.status)
         return (
-            <motion.div className="invoice-details-container" variants={invoiceVariants} initial="hidden" animate="visible">
-                Invoice Details weeesh
-                efwiojf;wjfwef
-                wpfohwo;fjwifjwf
-                wpifgjwilfjw;iorgjfwrigerigerigljaerilgjaeilrgjaeigrjaerlig
+            <motion.div className="invoice-details-container" variants={invoiceVariants} initial="hidden" animate="visible" exit="exit">
+                <Status status={this.props.status}/>
+                <HeaderDetails/>
+                <BodyDetails/>
             </motion.div>
           );
     }

@@ -18,8 +18,12 @@ const App = () => {
           <Route exact path="/">
             <Main/>
           </Route>
-          <Route path="/invoice/:id">
-            <InvoiceDetails/>
+          <Route 
+            path="/invoice/:id"
+            render={({location}) => {
+              const { state } : any = location
+              return <InvoiceDetails status={state.status}/>
+            }}>
           </Route>
         </Switch>
       </AnimatePresence>

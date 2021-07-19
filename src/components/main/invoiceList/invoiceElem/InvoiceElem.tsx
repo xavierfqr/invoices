@@ -15,7 +15,7 @@ interface StatusProps {
     status: string
 }
 
-const Status = ({status} : StatusProps) => {
+export const Status = ({status} : StatusProps) => {
     const classes = `${status} status`;
     const circleClasses = `${status}-circle circle`
     return (
@@ -32,7 +32,9 @@ const InvoiceElem = ({id,  createdAt, clientName, total, status} : Props) => {
     const stringDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'long' }).substr(0, 3)} ${date.getFullYear()}`
 
     return (
-        <Link to={`/invoice/${id}`} style={{ textDecoration: 'none', color:"#FFF"}}>
+        <Link to={{
+            pathname: `/invoice/${id}`,
+            state: {status : status}}} style={{ textDecoration: 'none', color:"#FFF"}}>
             <div className="invoice-elem-container" >
                 <div className="id"><span>#</span>{id}</div>
                 <div className="created-at">Due {stringDate}</div>

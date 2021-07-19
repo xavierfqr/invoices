@@ -6,10 +6,10 @@ import {FILTERS} from '../../constants/Filters'
 import {motion} from 'framer-motion';
 
 
-interface Props {
+interface IProps {
 }
 
-interface State {
+interface IState {
     filters: FILTERS[],
 }
 
@@ -29,9 +29,9 @@ const mainVariants = {
     }
 }
 
-class Main extends React.Component<Props, State> {
+class Main extends React.Component<IProps, IState> {
 
-    constructor(props: any){
+    constructor(props: IProps){
         super(props)
         this.state = {
             filters : [FILTERS.PAID, FILTERS.PENDING, FILTERS.DRAFT],
