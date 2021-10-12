@@ -33,9 +33,6 @@ interface IProps {
 }
 
 class InvoiceDetails extends React.Component<IProps> {
-    constructor(props: IProps){
-        super(props)
-    }
 
     render(){
         return (

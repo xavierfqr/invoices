@@ -9,9 +9,6 @@ interface IProps {
 }
 class HeaderDetails extends React.Component<IProps> {
 
-    constructor(props: IProps){
-        super(props)
-    }
     render() {
         return (
             <div className="header-details-container">
