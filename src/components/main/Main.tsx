@@ -34,7 +34,7 @@ class Main extends React.Component<IProps, IState> {
     constructor(props: IProps){
         super(props)
         this.state = {
-            filters : [FILTERS.PAID, FILTERS.PENDING, FILTERS.DRAFT],
+            filters : [],
         }
     }
 

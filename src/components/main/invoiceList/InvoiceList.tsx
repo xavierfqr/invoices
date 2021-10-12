@@ -8,7 +8,7 @@ interface Props {
 }
 
 interface State {
-    invoiceList : any
+    invoiceList : []
 }
 
 const listVariants = {
@@ -46,6 +46,8 @@ class InvoiceList extends React.Component<Props, State> {
     }
 
     handleFilter = (elem: string) => {
+        if (this.props.filters.length === 0)
+            return true;
         switch(elem){
             case "paid":
                 return this.props.filters.indexOf(FILTERS.PAID) !== -1

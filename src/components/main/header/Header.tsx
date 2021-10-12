@@ -17,7 +17,7 @@ class Filter extends React.Component<FilterProps, FilterState> {
     constructor(props: FilterProps){
         super(props);
         this.state={
-            myFilters: [FILTERS.PAID, FILTERS.PENDING, FILTERS.DRAFT]
+            myFilters: []
         }
     }
 
@@ -36,9 +36,9 @@ class Filter extends React.Component<FilterProps, FilterState> {
     render(){
         return (    
             <div className="dropdown">
-                <div><input type="checkbox" defaultChecked={true} onChange={(e) => this.handleChange(FILTERS.PAID, e.target.checked)}/> Paid</div>
-                <div><input type="checkbox" defaultChecked={true} onChange={(e) => this.handleChange(FILTERS.PENDING, e.target.checked)}/> Pending</div>
-                <div><input type="checkbox" defaultChecked={true} onChange={(e) => this.handleChange(FILTERS.DRAFT, e.target.checked)}/> Draft</div>
+                <div><input type="checkbox" defaultChecked={false} onChange={(e) => this.handleChange(FILTERS.PAID, e.target.checked)}/> Paid</div>
+                <div><input type="checkbox" defaultChecked={false} onChange={(e) => this.handleChange(FILTERS.PENDING, e.target.checked)}/> Pending</div>
+                <div><input type="checkbox" defaultChecked={false} onChange={(e) => this.handleChange(FILTERS.DRAFT, e.target.checked)}/> Draft</div>
             </div>
         )
     }
