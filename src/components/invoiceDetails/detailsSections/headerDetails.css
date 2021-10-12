@@ -1,0 +1,35 @@
+.header-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e2139;
+  width: 650px;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.header-defatils-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-details-right {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 5px;
+}
+
+.btn-red {
+  background-color: lightcoral;
+}
+
+.btn-black {
+  background-color: black;
+}

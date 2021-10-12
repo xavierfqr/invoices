@@ -1,9 +1,9 @@
 .invoice-details-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   align-items: center;
-  margin: auto;
+  margin: 130px auto 0 auto;
   width: 700px;
   height: inherit;
   color: white;

@@ -4,7 +4,6 @@ import './invoiceDetails.css';
 import '../main/invoiceList/invoiceElem/invoiceElem.css';
 import BodyDetails from './detailsSections/BodyDetails';
 import HeaderDetails from './detailsSections/HeaderDetails';
-import { Status } from '../main/invoiceList/invoiceElem/InvoiceElem';
 
 const invoiceVariants = {
     hidden:{
@@ -39,11 +38,9 @@ class InvoiceDetails extends React.Component<IProps> {
     }
 
     render(){
-        console.log(this.props.status)
         return (
             <motion.div className="invoice-details-container" variants={invoiceVariants} initial="hidden" animate="visible" exit="exit">
-                <Status status={this.props.status}/>
-                <HeaderDetails/>
+                <HeaderDetails status={this.props.status}/>
                 <BodyDetails/>
             </motion.div>
           );
