@@ -14,7 +14,7 @@ const Sidebar = () => {
             <div className="bottom-items">
                 <Sun className="sun"/>
                 <div className="delimit-bar"></div>
-                <img className="avatar" src={avatar} alt="avatar"/>
+                <img className="avatar" src={'cartoon-lion.png'} alt="avatar"/>
             </div>
         </div>
     )
